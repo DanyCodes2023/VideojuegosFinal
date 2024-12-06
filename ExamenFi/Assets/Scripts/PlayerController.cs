@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         Animator.SetBool("running", Horizontal != 0.0f);
 
         // Detectar Suelo
-        // Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
+       // Debug.DrawRay(transform.position, Vector3.down * 0.1f, Color.red);
         if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
         {
             Grounded = true;
@@ -47,12 +47,12 @@ public class PlayerController : MonoBehaviour
         }
 
        
-        /* // Disparar
+
         if (Input.GetKey(KeyCode.Space) && Time.time > LastShoot + 0.25f)
         {
             Shoot();
             LastShoot = Time.time;
-        }*/
+        }
     }
 
     private void FixedUpdate()
@@ -65,15 +65,15 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D.AddForce(Vector2.up * JumpForce);
     }
 
-  /*  private void Shoot()
+   private void Shoot()
     {
         Vector3 direction;
         if (transform.localScale.x == 1.0f) direction = Vector3.right;
         else direction = Vector3.left;
 
         GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.1f, Quaternion.identity);
-        bullet.GetComponent<BulletScript>().SetDirection(direction);
-    }*/
+        bullet.GetComponent<Bullet>().SetDirection(direction);
+    }
 
     public void Hit()
     {
